@@ -101,7 +101,7 @@ server.post("/register", async (req, res) => {
 })
 
 server.post("/logout",async (req,res)=>{
-  res.clearCookie("refreshtoken")
+  res.clearCookie("refreshtoken", {path: "/token_refresh"})
   res.clearCookie("accesstoken")
   return res.json({"status":"logged out"})
 })
